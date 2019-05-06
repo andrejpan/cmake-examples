@@ -6,10 +6,13 @@ project(hello_library)
 # Create a library
 ############################################################
 
-#Generate the shared library from the library sources
+# Generate the shared library from the library sources
+# with the name libhello_library.so with the sources
 add_library(hello_library SHARED 
     src/Hello.cpp
 )
+
+# alias target is an alternative name for a target that can be used instead of the real target name 
 add_library(hello::library ALIAS hello_library)
 
 target_include_directories(hello_library

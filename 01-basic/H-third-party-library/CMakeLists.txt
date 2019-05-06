@@ -9,16 +9,17 @@ find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 
 # check if boost was found
 if(Boost_FOUND)
-    message ("boost found")
+    message ("boost found at: ")
+    message(${Boost_INCLUDE_DIRS})
 else()
     message (FATAL_ERROR "Cannot find Boost")
 endif()
 
 # Add an executable
-add_executable(third_party_include main.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 
 # link against the boost libraries
-target_link_libraries( third_party_include
+target_link_libraries( ${PROJECT_NAME}
     PRIVATE
         Boost::filesystem
 )
